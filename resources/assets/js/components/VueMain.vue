@@ -6,7 +6,7 @@
 
       <ons-card class="banner">
         {{user.profile.house.name}}
-        <img width="100%" src="img/houses/s_serpents.png" alt="">
+        <img width="100%" :src="houseIconUrl" alt="">
         {{user.name}}
       </ons-card>
       <ons-list>
@@ -16,6 +16,7 @@
       </ons-list>
     </ons-page>
   </ons-splitter-side>
+
   <ons-splitter-content id="content">
     <ons-page>
         <ons-toolbar>
@@ -39,6 +40,20 @@
           <badge-collection :user="user" :badges="user.profile.badges"></badge-collection>
         </div>
 
+        <div v-show="pageActive('Statistics')">
+          <div class="content">coming soon</div>
+        </div>
+
+        <div v-show="pageActive('Log')">
+          <div class="content">coming soon</div>
+        </div>
+
+        <div v-show="pageActive('About')">
+          <div class="content">coming soon</div>
+        </div>
+
+
+
 
     </ons-page>
   </ons-splitter-content>
@@ -60,13 +75,15 @@ export default {
 
   data() {
     return {
-      pages: ['Home','Badges', 'Statistics', 'Profile', 'About'],
+      pages: ['Home','Badges', 'Statistics', 'Log', 'About'],
       activePage: 'Home'
     }
   },
 
   computed: {
-
+    houseIconUrl: function() {
+      return "img/houses/" + this.user.profile.house.name.split(" ")[1] + '.png';
+    }
   },
 
   methods: {

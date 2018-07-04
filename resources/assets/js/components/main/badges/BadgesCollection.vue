@@ -3,12 +3,19 @@
     <div class="content badge-container">
       <h2 class="title">AMO Badge Collection</h2>
       <div class="badge-collection">
-        <div class="badge" v-for="badge in allBadges" :key="badge.id">
-          <img v-if="badge.active" src="http://placehold.it/50x50" alt="">
-          <img v-else src="http://lorempixel.com/50/50" alt="">
+        <div @click="showInfo(badge)" :class="{'activebadge' : badge.active}" class="badge" v-for="badge in allBadges" :key="badge.id">
+          <img :class="{'grayscale': !badge.active}" :src="'img/badges/' + badge.img_path" alt="">
         </div>
       </div>
     </div>
+
+    <ons-modal @click="close"  direction="up">
+      <div class="modall">
+        <h1 class="title">{{activeBadge.name}}</h1>
+        <img :src="'img/badges/' + activeBadge.img_path" alt="">
+        <p>{{activeBadge.description}}</p>
+      </div>
+    </ons-modal>
   </div>
 </template>
 
@@ -20,7 +27,29 @@ export default {
 
   data() {
     return {
-      allBadges: []
+      allBadges: [],
+      activeBadge: {
+        "name" : 'undefined',
+        "description": 'undefined',
+        "img_path": "undefined"
+      }
+    }
+  },
+
+  computed: {
+
+  },
+
+  methods: {
+    showInfo(badge) {
+      this.activeBadge = badge;
+      let modal = document.querySelector('ons-modal');
+      modal.show();
+    },
+
+    close() {
+      let modal = document.querySelector('ons-modal');
+      modal.hide();
     }
   },
 
@@ -43,6 +72,16 @@ export default {
 
 <style lang="scss" scoped>
 
+  .modall {
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .modall img {
+    width: 50%;
+    height: auto;
+  }
+
   .title {
     text-align: center;
   }
@@ -55,8 +94,8 @@ export default {
     margin: 10px auto;
     background: -webkit-linear-gradient(to left, #fefefe, #ddd);  /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to left, #fefefe, #ddd); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    height: 300px;
-    box-shadow: 0px 0px 15px black;
+
+    // box-shadow: 0px 0px 15px black;
   }
 
   .badge-collection {
@@ -67,17 +106,27 @@ export default {
   }
 
   .badge {
-    margin: 5px;
-    padding: 5px;
-    border: inset 2px solid black;
-    box-shadow: 0px 3px 8px black;
-    width: 50px;
-    height: 50px;
+    margin: 15.5px 8px;
+    padding: 6px;
+    border: 2px solid #ccc;
+    transform: rotate(45deg);
+    width: 60px;
+    height: 60px;
   }
 
   .badge img {
     width: 100%;
+    transform: rotate(-45deg);
     height: auto;
-    box-shadow: 0px 0px 5px black;
   }
+
+  .grayscale {
+    filter: grayscale(150%);
+  }
+
+  .activebadge {
+    border:1px solid gold;
+    box-shadow: 0px 0px 15px gold;
+  }
+
 </style>
