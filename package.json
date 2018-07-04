@@ -21,6 +21,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
+        "gsap": "^2.0.1",
         "localforage": "^1.7.2",
         "onsenui": "^2.10.1"
     }

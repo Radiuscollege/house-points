@@ -105,5 +105,22 @@ class DatabaseSeeder extends Seeder
             'profile_id'    => 4,
             'badge_id'      => '2'
         ]);
+
+        DB::table('reasons')->insert([
+            'name' => 'Helping a fellow student'
+        ]);
+
+        DB::table('reasons')->insert([
+            'name' => 'Asking good questions in class'
+        ]);
+
+        DB::table('reasons')->insert([
+            'name' => 'Completing a (homework) assignment'
+        ]);
+
+        DB::table('reasons')->insert([
+            'name' => 'Created something cool'
+        ]);
+
     }
 }

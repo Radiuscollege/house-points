@@ -16,14 +16,39 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('vue-main', require('./components/VueMain.vue'));
-Vue.component('leader-board', require('./components/LeaderBoard.vue'));
-Vue.component('personal-stats', require('./components/PersonalStats.vue'));
-Vue.component('latest-badges', require('./components/Badges.vue'));
+// base templates
+Vue.component('vue-main',   require('./components/VueMain.vue'));
+Vue.component('vue-admin',  require('./components/VueAdmin.vue'));
 
+// components
+Vue.component('leader-board',       require('./components/main/home/LeaderBoard.vue'));
+Vue.component('personal-stats',     require('./components/main/home/PersonalStats.vue'));
+Vue.component('latest-badges',      require('./components/main/home/LatestBadges.vue'));
+
+Vue.component('badge-collection',   require('./components/main/badges/BadgesCollection.vue'));
+
+Vue.component('vue-search-student', require('./components/admin/SearchStudent.vue'));
+Vue.component('points-modifier',    require('./components/admin/PointsModifier.vue'));
 
 const app = new Vue({
     el: '#app'
 });
 
 
+var animateButton = function(e) {
+
+    e.preventDefault;
+    //reset animation
+    e.target.classList.remove('animate');
+  console.log('test');
+    e.target.classList.add('animate');
+    setTimeout(function(){
+      e.target.classList.remove('animate');
+    },700);
+  };
+
+  var bubblyButtons = document.getElementsByClassName("bubbly-button");
+
+  for (var i = 0; i < bubblyButtons.length; i++) {
+    bubblyButtons[i].addEventListener('click', animateButton, false);
+  }

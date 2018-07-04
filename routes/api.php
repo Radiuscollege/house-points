@@ -19,3 +19,8 @@ $router->middleware('auth:api')->get('/user', function (Request $request) {
 
 $router->get('houses', 'HousesController@index');
 $router->get('users/{id}', 'ProfilesController@show');
+$router->get('reasons', function() {
+    return \App\Reason::all();
+});
+
+$router->get('badges', 'BadgesController@index');

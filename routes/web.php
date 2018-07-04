@@ -12,13 +12,30 @@ use GuzzleHttp\Client;
 |
 */
 
-
 $router->get('/login', function() {
     return redirect('/amoclient/redirect');
 })->name('login');
 
 $router->get('/amoclient/ready', function() {
+    $user = \Auth::user();
+    \App\Profile::addNew($user);
+
     return redirect()->route('index');
 });
 
-$router->get('/', 'HomeController@index')->name('index');
+$router->get('/', function() {
+    if (!\Auth::check()) {
+        return redirect('/login');
+    }
+    return \Auth::user()->isAdmin() ?
+        redirect()->route('admin') :
+        redirect()->route('home');
+
+})->name('index');
+
+$router->get('/home', 'HomeController@home')->name('home')->middleware('auth');
+
+$router->group(['middleware' => ['admin']], function() use ($router) {
+    $router->get('/admin', 'HomeController@admin')->name('admin');
+    $router->post('/admin', 'ProfilesController@addPoints')->name('addPoints');
+});

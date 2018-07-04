@@ -4,17 +4,18 @@
   <ons-splitter-side id="menu" width="220px" collapse swipeable>
     <ons-page>
 
-      <ons-card>
+      <ons-card class="banner">
+        {{user.profile.house.name}}
         <img width="100%" src="img/houses/s_serpents.png" alt="">
+        {{user.name}}
       </ons-card>
       <ons-list>
-        <ons-list-item :key="page" v-for="page in pages" tappable>
+        <ons-list-item @click="changePage(page)" :key="page" v-for="page in pages" :class="{'page-active': page == activePage}"  tappable>
           {{ page }}
         </ons-list-item>
       </ons-list>
     </ons-page>
   </ons-splitter-side>
-
   <ons-splitter-content id="content">
     <ons-page>
         <ons-toolbar>
@@ -28,8 +29,15 @@
         </div>
         </ons-toolbar>
 
-        <leader-board></leader-board>
-        <personal-stats :user="user"></personal-stats>
+        <div v-show="pageActive('Home')">
+          <leader-board></leader-board>
+          <personal-stats :user="user"></personal-stats>
+          <latest-badges :badges="user.profile.latest_badges"> </latest-badges>
+        </div>
+
+        <div v-show="pageActive('Badges')">
+          <badge-collection :user="user" :badges="user.profile.badges"></badge-collection>
+        </div>
 
 
     </ons-page>
@@ -52,9 +60,22 @@ export default {
 
   data() {
     return {
-      pages: ['Points','Badges', 'Statistics', 'Profile', 'About'],
-      activePage: 'Points',
-      img: 'http://lorempixel.com/200/200'
+      pages: ['Home','Badges', 'Statistics', 'Profile', 'About'],
+      activePage: 'Home'
+    }
+  },
+
+  computed: {
+
+  },
+
+  methods: {
+    changePage(page) {
+      this.activePage = page;
+      fn.close();
+    },
+    pageActive(page) {
+      return page === this.activePage;
     }
   }
 }
@@ -62,5 +83,29 @@ export default {
 
 
 <style lang="scss" scoped>
+  $fuschia: #ff0081;
+  $button-bg: $fuschia;
+  $button-text-color: #fff;
+  $baby-blue: #f8faff;
+
+  .banner {
+    text-align: center;
+  }
+
+  .page-active {
+    background: $fuschia;
+  }
+
+  .slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+.slide-fade-enter, .slide-fade-leave-to
+/* .slide-fade-leave-active below version 2.1.8 */ {
+  transform: translateX(10px);
+  opacity: 0;
+}
 
 </style>

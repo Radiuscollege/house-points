@@ -11,7 +11,7 @@ class ProfilesController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     public function index(Request $request) {
@@ -35,29 +35,25 @@ class ProfilesController extends Controller
     }
 
     public function update(Request $request, $id) {
-
-      if (! $request->has(['log', 'giver_id'])) {
-        return response('Bad request', 400);
-      }
-
-      $profile = \App\Profile::firstOrCreate([
-        'studentnr' => $id
-      ]);
-
-      if (empty( $profile->house_id ) ) {
-        $profile->house_id = \App\House::sortHouse();
-      }
-
-      if ($request->has('points')) {
-        $profile->points += $request->input('points');
-        \App\Log::create([
-          'user_id'   => $id,
-          'body'      => $request->input('log'),
-          'giver_id'  => $request->input('giver_id')
-        ]);
-      }
-
-      $profile->save();
     }
+
+    public function addPoints(Request $request) {
+      $profile = \App\Profile::where('studentnr', $request->id)->first();
+      $profile->points += $request->points;
+      $profile->update();
+
+      $logBody = \App\Reason::findOrFail($request->log)->name;
+
+      $log = new \App\Log();
+      $log->points = $request->points;
+      $log->profile_id = $request->id;
+      $log->profile_name = $request->name;
+      $log->giver_id = \Auth::user()->id;
+      $log->giver_name = \Auth::user()->name;
+      $log->body = $logBody;
+      $log->save();
+    }
+
+
 
 }

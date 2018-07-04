@@ -16,7 +16,10 @@ class CreateLogsTable extends Migration
         Schema::create('logs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('profile_id');
+            $table->string('profile_name')->nullable();
             $table->string('giver_id');
+            $table->string('giver_name')->nullable();
+            $table->string('points')->nullable();
             $table->string('body');
             $table->timestamps();
         });

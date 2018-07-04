@@ -20,6 +20,11 @@ window.fn.open = function() {
   menu.open();
 };
 
+window.fn.close = function() {
+  var menu = document.getElementById('menu');
+  menu.close();
+}
+
 window.fn.load = function(page) {
   var content = document.getElementById('content');
   var menu = document.getElementById('menu');
@@ -36,7 +41,7 @@ window.fn.load = function(page) {
 
 try {
     window.$ = window.jQuery = require('jquery');
-    require('onsenui');
+    window.ons = require('onsenui');
 } catch (e) {}
 
 /**

@@ -2,6 +2,7 @@
   "short_name": "House Points",
   "name": "House Points",
   "background_color": "#db5945",
+  "theme_color": "#db5945",
   "orientation": "portrait",
   "icons": [
     {
@@ -43,8 +44,13 @@
       "src": "img/icons/amo.png",
       "sizes": "256x256",
       "type": "image/png"
+    },
+    {
+      "src": "img/icons/amo.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
-  "start_url": "/?launcher=true",
+  "start_url": "http://127.0.0.1:8000/",
   "display": "standalone"
 }
