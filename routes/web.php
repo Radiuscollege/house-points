@@ -30,6 +30,13 @@ $router->get('/amoclient/ready', function() {
 
 });
 
+
+$router->get('/', function() {
+    return \Auth::user()->isAdmin() ?
+    redirect()->route('admin') :
+    redirect()->route('home');
+});
+
 $router->get('/home', 'HomeController@home')->name('home')->middleware('auth');
 
 $router->group(['middleware' => ['admin']], function() use ($router) {
