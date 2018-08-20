@@ -28,13 +28,14 @@ $router->get('/amoclient/ready', function() {
 
 });
 
-$router->get('/login', function(){
-    return redirect('/amoclient/redirect');
+$route::get('/login', function(){
+	return redirect('/amoclient/redirect');
 })->name('login');
 
 
-$router->get('/', function() {
 
+$router->get('/', function() {
+    dd(\Auth::user());
     if ( \Auth::check() ) {
         return \Auth::user()->isAdmin() ?
         redirect()->route('admin') :
