@@ -28,7 +28,7 @@ $router->get('/amoclient/ready', function() {
 
 });
 
-$route::get('/login', function(){
+$router::get('/login', function(){
 	return redirect('/amoclient/redirect');
 })->name('login');
 
