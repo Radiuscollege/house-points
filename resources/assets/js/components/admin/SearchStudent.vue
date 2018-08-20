@@ -52,7 +52,7 @@ export default {
     },
 
     search() {
-      console.log(this.users);
+      console.log(this.searchQuery);
       this.queryResult = this.users.filter(this.filterByQuery);
       if (this.searchQuery == ''){
         this.queryResult = [];
