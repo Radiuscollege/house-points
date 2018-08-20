@@ -45,7 +45,7 @@ export default {
   methods: {
 
     filterByQuery(user) {
-      if ( user.name.toLowerCase().includes(this.searchQuery) || user.id.toLowerCase().includes(this.searchQuery))
+      if ( user.name.toLowerCase().includes(this.searchQuery.toLowerCase()) || user.id.toLowerCase().includes(this.searchQuery.toLowerCase()))
       {
         return true;
       }
@@ -53,7 +53,6 @@ export default {
 
     search() {
       this.queryResult = this.users.filter(this.filterByQuery);
-      console.log(this.queryResult);
       if (this.searchQuery == ''){
         this.queryResult = [];
       }
