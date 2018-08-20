@@ -46,6 +46,7 @@ export default {
     },
 
     search() {
+      window.alert('test');
       this.queryResult = this.users.filter(this.filterByQuery);
       if (this.searchQuery == ''){
         this.queryResult = [];
