@@ -37,7 +37,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/css/app.css","7f43185c531714054696b09f1a2e8d4e"],["/js/app.js","5041fdee250eb4c0b44c887f5162c4c9"],["/js/onsenui.js","d3cc7bd57d288f9287c090803d29b570"]];
+var precacheConfig = [["/css/app.css","7f43185c531714054696b09f1a2e8d4e"],["/js/app.js","c43c6486c20711b0a2ce03198f13db25"],["/js/onsenui.js","d3cc7bd57d288f9287c090803d29b570"]];
 var cacheName = 'sw-precache-v3-housepoints-' + (self.registration ? self.registration.scope : '');
 
 

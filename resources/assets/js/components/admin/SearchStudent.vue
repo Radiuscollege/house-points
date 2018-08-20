@@ -38,7 +38,6 @@ export default {
 
   watch: {
     searchQuery: function() {
-      window.alert('tets');
       this.search();
     }
   },
@@ -53,6 +52,7 @@ export default {
     },
 
     search() {
+      console.log('am i searching?');
       this.queryResult = this.users.filter(this.filterByQuery);
       if (this.searchQuery == ''){
         this.queryResult = [];
