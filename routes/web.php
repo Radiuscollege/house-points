@@ -13,7 +13,7 @@ use GuzzleHttp\Client;
 */
 
 $router->get('/amoclient/ready', function() {
-    dd($user);
+
     $user = \Auth::user();
 
     \App\Profile::addNew($user);
@@ -35,7 +35,6 @@ $route::get('/login', function(){
 
 
 $router->get('/', function() {
-    dd(\Auth::user());
     if ( \Auth::check() ) {
         return \Auth::user()->isAdmin() ?
         redirect()->route('admin') :
