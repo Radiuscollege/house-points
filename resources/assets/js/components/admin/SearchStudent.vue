@@ -38,6 +38,7 @@ export default {
 
   watch: {
     searchQuery: function() {
+      window.alert('tets');
       this.search();
     }
   },
