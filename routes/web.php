@@ -12,13 +12,10 @@ use GuzzleHttp\Client;
 |
 */
 
-$router->get('/login', function() {
-    return redirect('/amoclient/redirect');
-})->name('login');
-
 $router->get('/amoclient/ready', function() {
-    $user = \Auth::user();
     dd($user);
+    $user = \Auth::user();
+
     \App\Profile::addNew($user);
 
     if (!\Auth::check()) {
