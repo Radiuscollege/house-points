@@ -28,6 +28,10 @@ $router->get('/amoclient/ready', function() {
 
 });
 
+$router->get('/login', function(){
+    return redirect('/amoclient/redirect');
+})->name('login');
+
 
 $router->get('/', function() {
 
@@ -35,8 +39,9 @@ $router->get('/', function() {
         return \Auth::user()->isAdmin() ?
         redirect()->route('admin') :
         redirect()->route('home');
+    } else {
+        return redirect()->route('login');
     }
-    return redirect('/amoclient/redirect');
 
 });
 
