@@ -18,6 +18,7 @@ $router->get('/login', function() {
 
 $router->get('/amoclient/ready', function() {
     $user = \Auth::user();
+    dd($user);
     \App\Profile::addNew($user);
 
     if (!\Auth::check()) {
@@ -32,13 +33,14 @@ $router->get('/amoclient/ready', function() {
 
 
 $router->get('/', function() {
+
     if ( \Auth::check() ) {
         return \Auth::user()->isAdmin() ?
         redirect()->route('admin') :
         redirect()->route('home');
     }
+    return redirect('/amoclient/redirect');
 
-    return redirect()->route('login');
 });
 
 $router->get('/home', 'HomeController@home')->name('home')->middleware('auth');
