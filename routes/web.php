@@ -32,9 +32,13 @@ $router->get('/amoclient/ready', function() {
 
 
 $router->get('/', function() {
-    return \Auth::user()->isAdmin() ?
-    redirect()->route('admin') :
-    redirect()->route('home');
+    if ( \Auth::check() ) {
+        return \Auth::user()->isAdmin() ?
+        redirect()->route('admin') :
+        redirect()->route('home');
+    }
+
+    return redirect()->route('login');
 });
 
 $router->get('/home', 'HomeController@home')->name('home')->middleware('auth');
