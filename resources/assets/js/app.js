@@ -8,7 +8,7 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
+import VueTouch from 'vue-touch';
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -29,7 +29,7 @@ Vue.component('badge-collection',   require('./components/main/badges/BadgesColl
 
 Vue.component('vue-search-student', require('./components/admin/SearchStudent.vue'));
 Vue.component('points-modifier',    require('./components/admin/PointsModifier.vue'));
-
+Vue.use(VueTouch);
 const app = new Vue({
     el: '#app'
 });
