@@ -85,3 +85,13 @@ if (token) {
 //     encrypted: true
 // });
 
+
+let deferredPrompt;
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  e.preventDefault();
+  window.alert('You could install it to your home screen');
+  // Stash the event so it can be triggered later.
+  deferredPrompt = e;
+});
