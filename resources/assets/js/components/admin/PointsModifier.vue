@@ -124,7 +124,7 @@ export default {
     width: 100px;
     height: 100px;
     margin: 5px;
-    font-size: 3em;
+    font-size: 2em;
     box-shadow: 0px 0px 8px #ccc;
   }
 
