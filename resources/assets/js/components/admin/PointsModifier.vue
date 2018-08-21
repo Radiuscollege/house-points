@@ -121,8 +121,8 @@ export default {
   }
 
   .point-btn {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
     margin: 5px;
     font-size: 3em;
     box-shadow: 0px 0px 8px #ccc;
