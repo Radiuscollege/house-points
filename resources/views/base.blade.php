@@ -16,6 +16,16 @@
         </div>
         <noscript>Javascript is required to view this application</noscript>
         <script src="{{ asset('js/app.js') }}"></script>
+        <script>
+        let deferredPrompt;
 
+window.addEventListener('beforeinstallprompt', (e) => {
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
+  alert('You could install it to your home screen');
+  console.log('testing');
+  // Stash the event so it can be triggered later.
+
+});
+        </script>
     </body>
 </html>
