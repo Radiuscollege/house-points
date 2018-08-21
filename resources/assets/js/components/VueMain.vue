@@ -82,7 +82,7 @@ export default {
 
   computed: {
     houseIconUrl: function() {
-      return "img/houses/" + this.user.profile.house.name.split(" ")[1] + '.png';
+      return "img/houses/" + this.user.profile.house.name.split(" ")[1].toLowerCase() + '.png';
     }
   },
 
