@@ -90,7 +90,8 @@ let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => {
   // Prevent Chrome 67 and earlier from automatically showing the prompt
-  window.alert('You could install it to your home screen');
+  alert('You could install it to your home screen');
+  console.log('testing');
   // Stash the event so it can be triggered later.
 
 });
