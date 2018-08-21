@@ -27,6 +27,9 @@
         <div class="center">
             {{ activePage }}
         </div>
+        <div class="right">
+          <button id="btnHomeScreen">add to home</button>
+        </div>
         </ons-toolbar>
         <vue-search-student :users="users"> </vue-search-student>
         <points-modifier> </points-modifier>
