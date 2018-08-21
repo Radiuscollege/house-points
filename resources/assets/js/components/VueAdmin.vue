@@ -5,7 +5,7 @@
     <ons-page>
       <ons-card class="banner">
         {{user.profile.house.name}}
-        <img width="100%" src="img/houses/s_serpents.png" alt="">
+        <img width="100%" :src="houseIconUrl" alt="">
         {{user.name}}
       </ons-card>
       <ons-list>
@@ -54,6 +54,12 @@ export default {
 
     }
   },
+
+  computed: {
+      houseIconUrl: function() {
+        return "img/houses/" + this.user.profile.house.name.split(" ")[1] + '.png';
+      }
+    },
 
   methods: {
     userchange() {

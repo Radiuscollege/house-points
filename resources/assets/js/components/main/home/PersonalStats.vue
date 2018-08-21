@@ -8,7 +8,7 @@
               <div class="points">{{user.profile.points}}</div>
               points
             </ons-col>
-            <ons-col class="stat-block stat-points-week"> +3 points this week! </ons-col>
+            <ons-col class="stat-block stat-points-week"> +{{user.pointsThisWeek}} points this week! </ons-col>
           </ons-row>
 
         </ons-list>

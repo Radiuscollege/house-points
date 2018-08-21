@@ -24,6 +24,7 @@ Vue.component('vue-admin',  require('./components/VueAdmin.vue'));
 Vue.component('leader-board',       require('./components/main/home/LeaderBoard.vue'));
 Vue.component('personal-stats',     require('./components/main/home/PersonalStats.vue'));
 Vue.component('latest-badges',      require('./components/main/home/LatestBadges.vue'));
+Vue.component('logs',               require('./components/main/home/Log.vue'));
 
 Vue.component('badge-collection',   require('./components/main/badges/BadgesCollection.vue'));
 

@@ -12,7 +12,7 @@ class LogController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     public function index() {
@@ -20,33 +20,33 @@ class LogController extends Controller
     }
 
     public function show($id) {
-      // return \App\Profile::with(['house', 'badges'])->where('id', $id)->get();
+      return \App\Log::where('profile_id', $id)->get();
     }
 
     public function update(Request $request, $id) {
 
-      // if (! $request->has(['log', 'giver_id'])) {
-      //   return response('Bad request', 400);
-      // }
+      if (! $request->has(['log', 'giver_id'])) {
+        return response('Bad request', 400);
+      }
 
-      // $profile = \App\Profile::firstOrCreate([
-      //   'studentnr' => $id
-      // ]);
+      $profile = \App\Profile::firstOrCreate([
+        'studentnr' => $id
+      ]);
 
-      // if (empty( $profile->house_id ) ) {
-      //   $profile->house_id = \App\House::sortHouse();
-      // }
+      if (empty( $profile->house_id ) ) {
+        $profile->house_id = \App\House::sortHouse();
+      }
 
-      // if ($request->has('points')) {
-      //   $profile->points += $request->input('points');
-      //   \App\Log::create([
-      //     'user_id'   => $id,
-      //     'body'      => $request->input('log'),
-      //     'giver_id'  => $request->input('giver_id')
-      //   ]);
-      // }
+      if ($request->has('points')) {
+        $profile->points += $request->input('points');
+        \App\Log::create([
+          'user_id'   => $id,
+          'body'      => $request->input('log'),
+          'giver_id'  => $request->input('giver_id')
+        ]);
+      }
 
-      // $profile->save();
+      $profile->save();
     }
 
 }

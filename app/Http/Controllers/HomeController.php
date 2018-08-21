@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use \Carbon\Carbon;
 
 class HomeController extends Controller
 {
@@ -11,7 +12,14 @@ class HomeController extends Controller
     }
 
     public function home() {
-        $user = \App\User::with(['profile.house', 'profile.latestBadges', 'profile.badges'])->where('id', \Auth::id())->first();
+        $user = \App\User::with(['profile.house', 'profile.latestBadges', 'profile.badges', 'profile.logs'])->where('id', \Auth::id())->first();
+
+        Carbon::setWeekStartsAt(Carbon::SUNDAY);
+        Carbon::setWeekEndsAt(Carbon::SATURDAY);
+        $pointsThisWeek = \App\Log::whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()])
+                                ->where('profile_id', \Auth::id())
+                                ->sum('points');
+        $user['pointsThisWeek'] = number_format( $pointsThisWeek );
         return view('pages/index', compact('user'));
     }
 

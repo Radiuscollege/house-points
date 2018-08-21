@@ -47,7 +47,6 @@ class Profile extends Model
 
     }
 
-
     public function house() {
       return $this->belongsTo(House::class);
     }
@@ -64,5 +63,9 @@ class Profile extends Model
 
     public function user() {
       return $this->hasOne(User::class, 'id', 'studentnr');
+    }
+
+    public function logs() {
+      return $this->hasMany(Log::class, 'profile_id', 'studentnr');
     }
 }

@@ -45,7 +45,7 @@
         </div>
 
         <div v-show="pageActive('Log')">
-          <div class="content">coming soon</div>
+          <logs :user="user"> </logs>
         </div>
 
         <div v-show="pageActive('About')">

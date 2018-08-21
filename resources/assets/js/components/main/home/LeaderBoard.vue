@@ -4,7 +4,7 @@
      <ons-list-header>Leaderboard</ons-list-header>
     <ons-list-item v-for="house in houses" :key="house.name">
       <div class="left">
-        <img class="list-item__thumbnail" src="https://placekitten.com/g/40/40">
+        <img class="list-item__thumbnail" :src="'/img/houses/' + house.name.split(' ')[1].toLowerCase() + '.png'">
       </div>
       <div class="center">
         {{house.name}}
