@@ -5,7 +5,7 @@
           <ons-list-header>Latest badges</ons-list-header>
           <ons-row class="stat-row">
             <ons-col v-for="badge in badges" :key="badge.id" class="stat-block stat-total-points">
-              <img class="badge-img" src="http://placehold.it/200x200" alt="">
+              <img class="badge-img" src="https://placehold.it/200x200" alt="">
             </ons-col>
           </ons-row>
         </ons-list>
