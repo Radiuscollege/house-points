@@ -52,5 +52,6 @@
     }
   ],
   "start_url": "https://houses.amo.rocks/",
+  "scope_url": "https://houses.amo.rocks/",
   "display": "standalone"
 }
