@@ -41,7 +41,6 @@ var animateButton = function(e) {
     e.preventDefault;
     //reset animation
     e.target.classList.remove('animate');
-  console.log('test');
     e.target.classList.add('animate');
     setTimeout(function(){
       e.target.classList.remove('animate');
@@ -54,3 +53,5 @@ var animateButton = function(e) {
     bubblyButtons[i].addEventListener('click', animateButton, false);
   }
 
+const notification = document.getElementById('pushalert-ticker');
+notification.style.display = 'none';
