@@ -9,6 +9,16 @@
         <title></title>
         <link rel="manifest" href="manifest.json">
         <link rel="stylesheet" href="css/app.css">
+        <!-- PushAlert -->
+        <script type="text/javascript">
+                (function(d, t) {
+                        var g = d.createElement(t),
+                        s = d.getElementsByTagName(t)[0];
+                        g.src = "https://cdn.pushalert.co/integrate_fdbf4125a06b7c636c5895c9cb93d678.js";
+                        s.parentNode.insertBefore(g, s);
+                }(document, "script"));
+        </script>
+        <!-- End PushAlert -->
     </head>
     <body style="overflow-x: hidden !important">
 
