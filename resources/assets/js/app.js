@@ -53,5 +53,4 @@ var animateButton = function(e) {
     bubblyButtons[i].addEventListener('click', animateButton, false);
   }
 
-const notification = document.getElementById('pushalert-ticker');
-notification.style.display = 'none';
+  $("#pushalert-ticker").css('display', 'none');
