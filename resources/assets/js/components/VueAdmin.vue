@@ -12,9 +12,6 @@
         <ons-list-item :key="page" v-for="page in pages" tappable>
           {{ page }}
         </ons-list-item>
-        <ons-list-item @click="toStudentView()">
-          view as student
-        </ons-list-item>
       </ons-list>
     </ons-page>
   </ons-splitter-side>
@@ -67,12 +64,7 @@ export default {
   methods: {
     userchange() {
 
-    },
-
-    toStudentView() {
-      document.location.href= "https://houses.amo.rocks/home";
     }
-
   }
 }
 </script>

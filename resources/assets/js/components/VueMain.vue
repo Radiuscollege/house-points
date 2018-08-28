@@ -13,10 +13,6 @@
         <ons-list-item @click="changePage(page)" :key="page" v-for="page in pages" :class="{'page-active': page == activePage}"  tappable>
           {{ page }}
         </ons-list-item>
-        <ons-list-item @click="toHeadmasterView()" v-if="user.type === 'teacher'">
-          view as headmaster
-        </ons-list-item>
-
       </ons-list>
     </ons-page>
   </ons-splitter-side>
@@ -97,10 +93,6 @@ export default {
     },
     pageActive(page) {
       return page === this.activePage;
-    },
-
-    toHeadmasterView() {
-      document.location.href= "https://houses.amo.rocks/admin";
     }
   }
 }
