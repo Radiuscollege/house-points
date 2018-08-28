@@ -12,7 +12,7 @@
     <ons-modal @click="close"  direction="up">
       <div class="modall">
         <h1 class="title">{{activeBadge.name}}</h1>
-        <img :src="'img/badges/' + activeBadge.img_path" alt="">
+        <img :class="{'grayscale': !badge.active}" :src="'img/badges/' + activeBadge.img_path" alt="">
         <p>{{activeBadge.description}}</p>
       </div>
     </ons-modal>

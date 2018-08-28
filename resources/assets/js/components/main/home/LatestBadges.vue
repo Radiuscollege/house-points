@@ -2,10 +2,10 @@
   <div class="root" style="margin-top: 20px">
       <div class="content">
         <ons-list>
-          <ons-list-header>Latest badges</ons-list-header>
+          <ons-list-header>Latest badges earned</ons-list-header>
           <ons-row class="stat-row">
             <ons-col v-for="badge in badges" :key="badge.id" class="stat-block stat-total-points">
-              <img class="badge-img" src="https://placehold.it/200x200" alt="">
+              <img class="badge-img" :src="'img/badges/' + badge.img_path " alt="">
             </ons-col>
           </ons-row>
         </ons-list>
