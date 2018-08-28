@@ -12,8 +12,8 @@
         <ons-list-item :key="page" v-for="page in pages" tappable>
           {{ page }}
         </ons-list-item>
-        <ons-list-item @click="toHeadmasterView()" v-if="user.type === 'teacher'">
-          view as headmaster
+        <ons-list-item @click="toStudentView()">
+          view as student
         </ons-list-item>
       </ons-list>
     </ons-page>
@@ -69,8 +69,8 @@ export default {
 
     },
 
-    toHeadMasterView() {
-      document.location.href= "https://houses.amo.rocks/admin";
+    toStudentView() {
+      document.location.href= "https://houses.amo.rocks/home";
     }
 
   }

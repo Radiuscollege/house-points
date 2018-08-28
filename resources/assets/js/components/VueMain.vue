@@ -13,9 +13,10 @@
         <ons-list-item @click="changePage(page)" :key="page" v-for="page in pages" :class="{'page-active': page == activePage}"  tappable>
           {{ page }}
         </ons-list-item>
-        <ons-list-item @click="toStudentView()">
-          view as student
+        <ons-list-item @click="toHeadmasterView()" v-if="user.type === 'teacher'">
+          view as headmaster
         </ons-list-item>
+
       </ons-list>
     </ons-page>
   </ons-splitter-side>
@@ -98,8 +99,8 @@ export default {
       return page === this.activePage;
     },
 
-    toStudentsView() {
-      document.location.href= "https://houses.amo.rocks/home";
+    toHeadmasterView() {
+      document.location.href= "https://houses.amo.rocks/admin";
     }
   }
 }
