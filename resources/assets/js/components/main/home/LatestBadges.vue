@@ -9,7 +9,6 @@
             </ons-col>
           </ons-row>
         </ons-list>
-        <a href="">view all badges</a>
       </div>
   </div>
 </template>

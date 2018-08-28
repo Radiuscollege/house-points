@@ -12,6 +12,9 @@
         <ons-list-item :key="page" v-for="page in pages" tappable>
           {{ page }}
         </ons-list-item>
+        <ons-list-item @click="toHeadmasterView()" v-if="user.type === 'teacher'">
+          view as headmaster
+        </ons-list-item>
       </ons-list>
     </ons-page>
   </ons-splitter-side>
@@ -64,7 +67,12 @@ export default {
   methods: {
     userchange() {
 
+    },
+
+    toHeadMasterView() {
+      document.location.href= "https://houses.amo.rocks/admin";
     }
+
   }
 }
 </script>
