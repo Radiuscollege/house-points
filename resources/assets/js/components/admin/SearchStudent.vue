@@ -1,6 +1,6 @@
 <template>
   <div class="root">
-    <input v-if="!Object.keys(selectedStudent).length" v-model="searchQuery" type="search" value="" placeholder="Search Student" class="search-input search-input--material" style="width: 100%">
+    <input v-if="!Object.keys(selectedStudent).length" v-model="searchQuery" type="search" value="" placeholder="Searchfdsfsd Student" class="search-input search-input--material" style="width: 100%">
     <div v-else class="toolbar">
       <div class="toolbar__left"></div>
       <div class="toolbar__center">

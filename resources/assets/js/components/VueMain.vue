@@ -13,6 +13,7 @@
         <ons-list-item @click="changePage(page)" :key="page" v-for="page in pages" :class="{'page-active': page == activePage}"  tappable>
           {{ page }}
         </ons-list-item>
+        <logout></logout>
       </ons-list>
     </ons-page>
   </ons-splitter-side>
@@ -51,7 +52,6 @@
         <div v-show="pageActive('About')">
           <div class="content">coming soon</div>
         </div>
-
 
 
 

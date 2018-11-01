@@ -25,7 +25,7 @@ Vue.component('leader-board',       require('./components/main/home/LeaderBoard.
 Vue.component('personal-stats',     require('./components/main/home/PersonalStats.vue'));
 Vue.component('latest-badges',      require('./components/main/home/LatestBadges.vue'));
 Vue.component('logs',               require('./components/main/home/Log.vue'));
-
+Vue.component('logout',             require('./components/Logout.vue'));
 Vue.component('badge-collection',   require('./components/main/badges/BadgesCollection.vue'));
 
 Vue.component('vue-search-student', require('./components/admin/SearchStudent.vue'));

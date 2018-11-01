@@ -9,9 +9,10 @@
         {{user.name}}
       </ons-card>
       <ons-list>
-        <ons-list-item :key="page" v-for="page in pages" tappable>
+        <ons-list-item @click="changePage(page)" :key="page" v-for="page in pages" tappable>
           {{ page }}
         </ons-list-item>
+        <logout></logout>
       </ons-list>
     </ons-page>
   </ons-splitter-side>
@@ -49,7 +50,7 @@ export default {
   props: ['user', 'badges', 'users'],
   data() {
     return {
-      pages: ['Points','Badges', 'Statistics', 'Profile', 'About'],
+      pages: ['Points','Badges', 'Statistics', 'Profile', 'Abodut'],
       activePage: 'Points',
 
     }
@@ -62,8 +63,13 @@ export default {
     },
 
   methods: {
-    userchange() {
+    changePage(page) {
+      this.activePage = page;
+      fn.close();
+    },
 
+    pageActive(page) {
+      return page === this.activePage;
     }
   }
 }
